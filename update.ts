@@ -1,4 +1,6 @@
 import { check } from "./isInStock";
+import {sendTelegram} from './sendTelegram';
+
 const fs = require("fs");
 
 export async function update(fileName: string, mall: string) {
@@ -22,6 +24,7 @@ export async function update(fileName: string, mall: string) {
       console.log("in stock!");
 
       //여기에 텔레그램 api 넣을 예정
+      sendTelegram(data.url)
     }
   }
   console.log(status);
