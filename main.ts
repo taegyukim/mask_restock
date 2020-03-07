@@ -32,4 +32,7 @@ export function jobHandler<T>(
   setInterval(job, timeInterval * 1000);
 }
 
-jobHandler("smartstore-100", update, 3);
+for(let i = 1 ; i <= 13 ; i++) {
+  jobHandler(`smartstore-${i}`, update, 3)
+}
+// jobHandler("smartstore-100", update, 3);
