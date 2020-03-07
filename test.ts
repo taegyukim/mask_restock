@@ -3,7 +3,7 @@ var fs = require('fs');
 
 // let rawData = fs.readFileSync('./smartstore-1.json');
 // let data = JSON.parse(rawData);
-const fileName = './smartstore-1.json';
+const fileName = './data/smartstore-1.json';
 let data = require(fileName)
 if(1) {
     data.status = true;
