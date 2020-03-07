@@ -3,10 +3,10 @@ import {sendTelegram} from './sendTelegram';
 
 const fs = require("fs");
 
-export async function update(fileName: string, mall: string) {
+export async function update(fileName: string) {
   let data = require(fileName);
 
-  const status = await check(data.url, mall);
+  const status = await check(data.url, data.mall);
 
   // 저장된 상태와 새롭게 체크한 상태가 다를 경우
   if (status !== data.status) {

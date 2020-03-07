@@ -2,8 +2,7 @@ import { update } from "./update";
 
 export function jobHandler<T>(
   product: string,
-  update: (fileName: string, mall: string) => Promise<T>,
-  mall: string,
+  update: (fileName: string) => Promise<T>,
   timeInterval: number
 ) {
   const fileName = `./data/${product}.json`;
@@ -20,7 +19,7 @@ export function jobHandler<T>(
     console.log(`[${product}] [${new Date().toISOString()}] Running Job`);
 
     try {
-      await update(fileName, mall);
+      await update(fileName);
     } catch (err) {
       console.log(`Error!! [${product}] [${new Date().toISOString()}]`);
       console.error(err);
@@ -33,4 +32,4 @@ export function jobHandler<T>(
   setInterval(job, timeInterval * 1000);
 }
 
-jobHandler("smartstore-100", update, "smartstore", 3);
+jobHandler("smartstore-100", update, 3);
